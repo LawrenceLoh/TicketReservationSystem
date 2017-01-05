@@ -10,9 +10,17 @@ package ticket.reservation.system;
  * @author User
  */
 public class Plane extends Vehicle{
+    
+    public Plane(String id){
+        super.id = "PID"+id;
+        super.seats = new Seat[120];
+        super.departureLocation = "Location Foo";
+        super.destination = "Location Bar";
+    }
+    
     @Override
-    public String getID(String number) {
-        return "P"+number;
+    public String getID() {
+        return super.id;
     }
 
     @Override
@@ -22,6 +30,16 @@ public class Plane extends Vehicle{
 
     @Override
     public Seat[] getAvailableSeats() {
-        return new Seat[120];
+        return super.seats;
+    }
+    
+    @Override
+    public void setDepartureLocation(String location) {
+        System.out.println("Set Plane:"+id+" departure location to "+location);
+    }
+    
+    @Override
+    public void setDestination(String location) {
+        System.out.println("Set Plane:"+id+" destination to "+location);
     }
 }

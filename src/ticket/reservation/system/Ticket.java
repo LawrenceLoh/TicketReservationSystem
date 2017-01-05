@@ -22,4 +22,8 @@ public abstract class Ticket {
     protected abstract String generateID();
     
     public abstract void printDetails();
+    
+    public Seat getSeat(){
+        return seat;
+    };
 }

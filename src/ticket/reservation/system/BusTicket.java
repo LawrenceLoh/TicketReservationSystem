@@ -25,12 +25,12 @@ public class BusTicket extends Ticket {
 
     @Override
     protected String generateID() {
-        return "R";
+        return "R"+super.seat.getID();
     }
 
     @Override
     public void printDetails() {
-        System.out.println("Roadway TicketID:"+generateID()+"Price: "+price + ". Departure Location: "+departureLocation+". Destination:"+destination);
+        System.out.println("Roadway TicketID:"+generateID()+". Price: "+price + ". Departure Location: "+departureLocation+". Destination:"+destination);
     }
 
 }

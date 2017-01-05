@@ -11,15 +11,15 @@ package ticket.reservation.system;
  */
 public class VehicleFactory extends AbstractFactory{
     //use getVehicle method to get object of type vehicle 
-   public Vehicle getVehicle(String vehicleType){
+   public Vehicle getVehicle(String vehicleType, String vehicleID){
       if(vehicleType == null){
          return null;
       }		
       
       if(vehicleType.equalsIgnoreCase(STRING_CONSTANT.BUS)){
-         return new Bus();
+         return new Bus(vehicleID);
       } else if(vehicleType.equalsIgnoreCase(STRING_CONSTANT.PLANE)){
-         return new Plane();  
+         return new Plane(vehicleID);  
       }
       
       return null;

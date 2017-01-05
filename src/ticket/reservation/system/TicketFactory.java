@@ -27,7 +27,7 @@ public class TicketFactory extends AbstractFactory{
    }
 
     @Override
-    Vehicle getVehicle(String vehicleType) {
+    Vehicle getVehicle(String vehicleType, String vehicleID) {
         return null;
     }
 

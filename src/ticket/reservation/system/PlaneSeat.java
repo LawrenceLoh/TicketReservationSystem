@@ -11,14 +11,29 @@ package ticket.reservation.system;
  */
 public class PlaneSeat extends Seat{
 
+    public PlaneSeat() {
+        super.id = "PS";
+        super.availability = true;
+    }
+    
     @Override
-    public String getID(String number) {
-        return number;
+    public String getID() {
+        return super.id;
     }
 
     @Override
     public boolean getAvailability() {
-        return true;
+        return super.availability;
+    }
+
+    @Override
+    public void setAvailability(boolean availability) {
+        super.setAvailability(availability);
+        if (availability){
+            System.out.println("Set plane seat to available.");
+        } else {
+            System.out.println("Set plane seat to not available");
+        }
     }
     
 }

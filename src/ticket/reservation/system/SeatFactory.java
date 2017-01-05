@@ -27,11 +27,9 @@ public class SeatFactory extends AbstractFactory{
    }
 
     @Override
-    Vehicle getVehicle(String vehicleType) {
+    Vehicle getVehicle(String vehicleType, String vehicleID) {
         return null;
     }
-
-
 
     @Override
     Ticket getTicket(String ticketType, Seat seat, Customer customer, String depatureLocation, String destination, String depatureTime, String arrivalTime) {

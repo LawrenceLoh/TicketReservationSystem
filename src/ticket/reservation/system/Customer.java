@@ -34,8 +34,8 @@ public class Customer {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Search Ticket.....");
         System.out.println("Please choose facility: (R) Roadways or (A) Airways: (R/A)");
-        if (scanner.hasNext()) {
-            String selection = scanner.nextLine();
+        String selection = scanner.nextLine();
+        if (selection.equalsIgnoreCase("A") || selection.equalsIgnoreCase("R")) {
             String seatString = selection.equalsIgnoreCase("R") ? STRING_CONSTANT.BUS_SEAT : STRING_CONSTANT.PLANE_SEAT;
             String ticketString = selection.equalsIgnoreCase("R") ? STRING_CONSTANT.BUS_TICKET : STRING_CONSTANT.PLANE_TICKET;
             String vehicleString = selection.equalsIgnoreCase("R") ? STRING_CONSTANT.BUS : STRING_CONSTANT.PLANE;
@@ -58,9 +58,9 @@ public class Customer {
             AbstractFactory ticketFactory = FactoryProducer.getFactory(STRING_CONSTANT.TICKET_FACTORY);
             Ticket ticket = ticketFactory.getTicket(ticketString, seat,
                     customer, depatureLocation, destination, depatureTime, arrivalTime);
-            
+
             bookTicket(ticket);
-            
+
         } else {
             System.out.println("Invalid input...");
             System.exit(0);
@@ -68,25 +68,54 @@ public class Customer {
     }
 
     public void cancelTicket() {
-        System.out.println("cancelTicket");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Cancel ticket.....");
+        System.out.println("Please enter ticket ID:");
+        if (scanner.hasNext()) {
+            String ticketID = scanner.nextLine();
+            String ticketType = ticketID.substring(0, 1);
+            if (ticketType.equalsIgnoreCase("A") || ticketType.equalsIgnoreCase("R")) {
+                String seatString = ticketType.equalsIgnoreCase("R") ? STRING_CONSTANT.BUS_SEAT : STRING_CONSTANT.PLANE_SEAT;
+                System.out.println("Cancelling ticket...");
+                System.out.println("Ticket cancelled.");
+                AbstractFactory seatFactory = FactoryProducer.getFactory(STRING_CONSTANT.SEAT_FACTORY);
+                Seat seat = seatFactory.getSeat(seatString);
+                seat.setAvailability(true);
+            } else {
+                System.out.println("Invalid ticketID");
+                System.out.println("Thank you.");
+                System.exit(0);
+            }
+        } else {
+            System.out.println("Invalid input...");
+            System.exit(0);
+        }
     }
 
     public void viewBookedTicket() {
-        System.out.println("viewBookedTicket");
+        System.out.println("Diplaying booked ticket....");
+        System.out.println("-------Booked ticket-------");
+        System.out.println("Thank you.");
+        System.exit(0);
     }
 
     public void viewTicketHistory() {
-        System.out.println("viewTicketHistory");
+        System.out.println("Diplaying ticket history....");
+        System.out.println("-------Ticket History-------");
+        System.out.println("Thank you.");
+        System.exit(0);
     }
 
     private void bookTicket(Ticket ticket) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Do you want to reserve the ticket? (Y/N)");
-        if (scanner.hasNext()){
-            if(scanner.nextLine().equalsIgnoreCase("Y")){
+        if (scanner.hasNext()) {
+            if (scanner.nextLine().equalsIgnoreCase("Y")) {
+                makePayment();
+                ticket.getSeat().setAvailability(false);
                 System.out.println("Ticket reserved.");
                 ticket.printDetails();
-            }else {
+            } else {
                 System.out.println("Thanks for searching. Bye");
                 System.exit(0);
             }
@@ -97,6 +126,7 @@ public class Customer {
     }
 
     private void makePayment() {
-        System.out.println("makePayment");
+        System.out.println("Enterring credit card....");
+        System.out.println("Transaction processed....");
     }
 }

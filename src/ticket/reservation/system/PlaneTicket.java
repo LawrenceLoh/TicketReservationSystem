@@ -24,7 +24,7 @@ public class PlaneTicket extends Ticket{
     
     @Override
     protected String generateID() {
-        return "A";
+        return "A"+super.seat.getID();
     }
 
     @Override

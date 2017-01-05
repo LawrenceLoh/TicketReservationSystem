@@ -10,7 +10,7 @@ package ticket.reservation.system;
  * @author User
  */
 public abstract class AbstractFactory {
-    abstract Vehicle getVehicle(String vehicleType);
+    abstract Vehicle getVehicle(String vehicleType, String vehicleID);
     abstract Seat getSeat(String seatType);
     abstract Ticket getTicket(String ticketType, Seat seat, Customer customer, String depatureLocation, 
             String destination, String depatureTime, String arrivalTime);
