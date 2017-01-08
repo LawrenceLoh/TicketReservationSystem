@@ -39,7 +39,14 @@ public class Customer {
             String seatString = selection.equalsIgnoreCase("R") ? STRING_CONSTANT.BUS_SEAT : STRING_CONSTANT.PLANE_SEAT;
             String ticketString = selection.equalsIgnoreCase("R") ? STRING_CONSTANT.BUS_TICKET : STRING_CONSTANT.PLANE_TICKET;
             String vehicleString = selection.equalsIgnoreCase("R") ? STRING_CONSTANT.BUS : STRING_CONSTANT.PLANE;
-
+            
+            System.out.println("One way (O) or return(R)?");
+            scanner.nextLine();
+            
+            System.out.println("How many seats do you want?");
+            scanner.nextLine();
+            
+            System.out.println("Searching based on availability.....");
             System.out.println("Please enter departure location");
             String depatureLocation = scanner.nextLine();
 
@@ -76,7 +83,8 @@ public class Customer {
             String ticketType = ticketID.substring(0, 1);
             if (ticketType.equalsIgnoreCase("A") || ticketType.equalsIgnoreCase("R")) {
                 String seatString = ticketType.equalsIgnoreCase("R") ? STRING_CONSTANT.BUS_SEAT : STRING_CONSTANT.PLANE_SEAT;
-                System.out.println("Cancelling ticket...");
+                String cancelString = ticketType.equalsIgnoreCase("R") ? "Cancelling roadway ticket.":"Cancelling airway ticket";
+                System.out.println(cancelString);
                 System.out.println("Ticket cancelled.");
                 AbstractFactory seatFactory = FactoryProducer.getFactory(STRING_CONSTANT.SEAT_FACTORY);
                 Seat seat = seatFactory.getSeat(seatString);

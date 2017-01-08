@@ -6,8 +6,6 @@
 package ticket.reservation.system;
 
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
-import jdk.nashorn.internal.ir.BreakNode;
 
 /**
  *
@@ -24,9 +22,29 @@ public class TicketReservationSystem {
     private static Admin admin;
 
     public static void main(String[] args) {
-        boolean isCustomer = login().equals(CUSTOMER);
-        displayMenu(isCustomer);
-        selectAction(isCustomer);
+        System.out.println("Please choose an action:");
+        System.out.println("1. Login    2. Register");
+        if (scanner.hasNextInt()) {
+            switch (scanner.nextInt()) {
+                case 1:
+                    scanner.nextLine();
+                    boolean isCustomer = login().equals(CUSTOMER);
+                    displayMenu(isCustomer);
+                    selectAction(isCustomer);
+                    break;
+                case 2:
+                    scanner.nextLine();
+                    register();
+                    boolean isCustomerR = login().equals(CUSTOMER);
+                    displayMenu(isCustomerR);
+                    selectAction(isCustomerR);
+                    break;
+                default:
+                    System.out.println("Invalid input.");
+                    System.exit(0);
+                    break;
+            }
+        }
     }
 
     private static void register() {
@@ -86,7 +104,7 @@ public class TicketReservationSystem {
         System.out.println("Please enter number of an action:");
         if (scanner.hasNextInt()) {
             int action = scanner.nextInt();
-
+            
             if (isCustomer) {
                 switch (action) {
                     case 1:

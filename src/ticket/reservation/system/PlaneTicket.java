@@ -29,6 +29,6 @@ public class PlaneTicket extends Ticket{
 
     @Override
     public void printDetails() {
-        System.out.println("Airway TicketID:"+generateID()+"Price: "+price + ". Departure Location: "+departureLocation+". Destination:"+destination);
+        System.out.println("Airway TicketID:"+generateID()+". Price: "+price + ". Departure Location: "+departureLocation+". Destination:"+destination);
     }
 }

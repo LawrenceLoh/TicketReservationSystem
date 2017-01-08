@@ -29,12 +29,14 @@ public class Admin {
     }
 
     public void viewBookedTicket() {
+        System.out.println("Displaying book request");
         System.out.println("Diplaying user booked ticket....");
         System.out.println("-------User Booked Ticket-------");
         System.exit(0);
     }
 
     public void viewTicketHistory() {
+        System.out.println("Displaying ticket cancellation request");
         System.out.println("Diplaying monthy ticket sales....");
         System.out.println("-------Ticket Sales-------");
         System.exit(0);
