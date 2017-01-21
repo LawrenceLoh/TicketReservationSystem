@@ -10,16 +10,16 @@ package ticket.reservation.system;
  * @author User
  */
 public class STRING_CONSTANT {
-    public static final String TICKET_FACTORY = "TICKET_FACTORY";
-    public static final String SEAT_FACTORY = "SEAT_FACTORY";
-    public static final String VEHICLE_FACTORY = "VEHICLE_FACTORY";
+    public static final String TICKET_FACTORY = "LOVE HANA TICKET_FACTORY";
+    public static final String SEAT_FACTORY = "LOVE HANA SEAT_FACTORY";
+    public static final String VEHICLE_FACTORY = "LOVE HANA VEHICLE_FACTORY";
     
-    public static final String BUS_SEAT = "BUS_SEAT";
-    public static final String PLANE_SEAT = "PLANE_SEAT";
+    public static final String BUS_SEAT = "LOVE HANA BUS_SEAT";
+    public static final String PLANE_SEAT = "LOVE HANA PLANE_SEAT";
     
-    public static final String BUS_TICKET = "BUS_TICKET";
-    public static final String PLANE_TICKET = "PLANE_TICKET";
+    public static final String BUS_TICKET = "LOVE HANA BUS_TICKET";
+    public static final String PLANE_TICKET = "LOVE HANA PLANE_TICKET";
     
-    public static final String BUS = "BUS";
-    public static final String PLANE = "PLANE";
+    public static final String BUS = "LOVE HANA BUS";
+    public static final String PLANE = "LOVE HANA PLANE";
 }
